@@ -9,5 +9,17 @@ Please find more info about each part in the relevant Readme file ([frontend](fr
 When implementing a new feature or fixing a bug, please create a new pull request against `main` from a feature/bug branch and add `@vanessa-cooper` as reviewer.
 
 ## First setup
-
-**[TODO 05/01/2018 @vanessa-cooper]:** _It's been a while since anyone ran a fresh copy of this repo. I think it's worth documenting the steps needed to install and run the repo on a new machine?_
+### Installation
+1. Install [Docker](https://docs.docker.com/get-docker/)
+2. Verify installation: (> output sample)
+```bash
+docker -v
+> Docker version 20.10.14, build a224086
+docker-compose -v
+> Docker Compose version v2.5.1
+```
+### Running app
+1. Invoke ```docker-compose up``` (optional: ```-d``` for detached mode)
+2. Wait for images to be pulled and started
+3. Onve done, navigate to http://localhost:3000/api/ping to validate system is up
+4. Navigate to http://localhost:3001/register and create your user!
