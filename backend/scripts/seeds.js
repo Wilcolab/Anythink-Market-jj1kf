@@ -6,8 +6,24 @@ const User = mongoose.model("User", userLib.UserSchema);
 const Item = mongoose.model('Item', itemLib.ItemSchema);
 const Comment = mongoose.model('Comment', commentLib.CommentSchema);
 
-let mongo_uri = process.env.MONGODB_URI
-mongoose.connect(mongo_uri);
+main().catch(err => {console.log(err); process.exit(1)});
+
+async function main() {
+  let mongo_uri = process.env.MONGODB_URI
+  mongoose.connect(mongo_uri);
+
+  await clearItems().then(clearUsers).then(clearComments)
+  users = generateUsers()
+  await User.insertMany(users).catch((err) => console.log("error!", err))
+
+  items = generateItems(users)
+  await Item.insertMany(items).catch((err) => console.log("error!", err))
+
+  comments = generateComments(items)
+  await Comment.insertMany(comments).then(() => console.log("Finished inserting comments"))
+
+  process.exit(0)
+}
 
 function clearItems() {
   return Item.deleteMany({'title': {$regex: /^Seed/}}).then(function() {
@@ -76,16 +92,3 @@ function generateComments(items) {
     })
   })
 }
-
-clearItems().then(clearUsers).then(clearComments).then(() => {
-  users = generateUsers()
-  User.insertMany(users).catch((err) => console.log("error!", err))
-}).then(() => {
-  items = generateItems(users)
-}).then(() => {
-  Item.insertMany(items).catch((err) => console.log("error!", err))
-}).then(() =>
-{
-  comments = generateComments(items)
-  Comment.insertMany(comments).then(() => console.log("Finished inserting comments"))
-}).then(() => process.exit(0))
