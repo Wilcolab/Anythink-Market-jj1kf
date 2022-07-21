@@ -29,7 +29,7 @@ const ItemPreview = (props) => {
     }
   };
 
-  let itemImg = item.image ? item.image : "placeholder.png"
+  let itemImg = item.image ? item.image : "placeholder.png";
   return (
     <div
       className="card bg-dark border-light p-3"
