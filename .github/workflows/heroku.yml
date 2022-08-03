@@ -53,4 +53,4 @@ jobs:
           heroku_email: "ness@anythink.family"
           dontautocreate: true
           env:
-            BACKEND_API_URL: "https://anythink-market-jj1kf-api.herokuapp.com/api"
+            BACKEND_URL: "https://anythink-market-jj1kf-api.herokuapp.com/api"
