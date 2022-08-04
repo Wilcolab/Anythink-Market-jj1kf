@@ -1,3 +1,0 @@
-setup:
-  config:
-    BACKEND_URL: "https://anythink-market-jj1kf-api.herokuapp.com/api"
