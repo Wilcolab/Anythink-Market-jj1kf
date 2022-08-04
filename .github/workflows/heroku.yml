@@ -24,7 +24,6 @@ jobs:
         run: echo "::set-output name=defined::true"
         env:
             FRONTEND_KEY: ${{ secrets.HEROKU_FRONTEND_APP }}
-            BACKEND_URL: "https://anythink-market-jj1kf-api.herokuapp.com/api"
 
   build-backend:
     environment: Production
@@ -53,3 +52,5 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_FRONTEND_APP}}
           heroku_email: "ness@anythink.family"
           dontautocreate: true
+        env:
+          BACKEND_URL: "https://anythink-market-jj1kf-api.herokuapp.com/api"
