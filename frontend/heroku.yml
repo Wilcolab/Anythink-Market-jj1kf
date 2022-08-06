@@ -1,3 +1,3 @@
 setup:
   config:
-    REACT_APP_BACKEND_URL: "https://anythink-market-jj1kf-api.herokuapp.com/api"
+    REACT_APP_BACKEND_URL: "https://anythink-market-jj1kf-api.herokuapp.com"
