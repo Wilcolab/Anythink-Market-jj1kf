@@ -10,10 +10,6 @@ exports.config = {
    * Array of application names.
    */
   app_name: ['Anythink-Markey-jj1kf-backend'],
-  /**
-   * Your New Relic license key.
-   */
-  license_key: 'licensce-key-place-holder',
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
