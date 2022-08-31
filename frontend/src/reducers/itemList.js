@@ -10,6 +10,7 @@ import {
   PROFILE_PAGE_UNLOADED,
   PROFILE_FAVORITES_PAGE_LOADED,
   PROFILE_FAVORITES_PAGE_UNLOADED,
+  UPDATE_TITLE_SEARCH_TERM,
 } from "../constants/actionTypes";
 
 const reducer = (state = {}, action) => {
@@ -80,6 +81,11 @@ const reducer = (state = {}, action) => {
     case PROFILE_PAGE_UNLOADED:
     case PROFILE_FAVORITES_PAGE_UNLOADED:
       return {};
+    case UPDATE_TITLE_SEARCH_TERM:
+      return {
+        ...state,
+        titleSearchTerm: action.payload.titleSearchTerm,
+      };
     default:
       return state;
   }
