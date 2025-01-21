@@ -1,8 +1,0 @@
-{{- define "anythink-tenant.backendHost" -}}
-  https://{{- .Release.Namespace }}-api.
-  {{- if eq .Values.clusterEnv "production" }}
-    {{- .Values.productionBackendHost }}
-  {{- else }}
-    {{- .Values.stagingBackendHost }}
-  {{- end }}
-{{- end }}
